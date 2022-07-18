@@ -1,5 +1,5 @@
 class Person
-  def initialize(age, parent_permission, name = 'Unknown')
+  def initialize(age, name = 'Unknown', parent_permission = true)
     @id = Random.rand(1...1000)
     @name = name
     @age = age
@@ -15,14 +15,9 @@ class Person
 
   private
 
-  def is_of_age?
+  def is_of_age? # rubocop:disable Naming/PredicateName
     @age >= 18
   end
 end
 
-person1 = Person.new(23, false, 'Dele')
 
-p person1.can_use_services
-p person1.name
-p person1.age
-p person1.is_of_age
