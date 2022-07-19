@@ -6,11 +6,42 @@
 ## Built With
 
 - **Ruby**
+
+## Setup
+
+- Install Ruby in local envinronment.
+- Run program(irb) using the command line
+
+## Prerequisites
+- Understand Ruby basic system and linux
+- No linter errors
   
 
 ## Getting Started
 
-Clone the project, make sure you have ruby installed and you are good to go
+Clone the project, make sure you have ruby installed and you are good to go:
+
+```
+   git clone https://github.com/V0pe/School-library.git
+   ``` 
+
+To view the project directory
+
+```
+   cd School-library
+   ```
+
+To run the code
+
+```
+ruby
+```
+
+Check for linter errors
+
+```
+rubocop
+```
 
 ## Author
 
@@ -30,3 +61,12 @@ Feel free to check the [issues page](https://github.com/V0pe/School-library/issu
 ## Show your support
 
 Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Microverse community
+
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
