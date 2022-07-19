@@ -1,6 +1,6 @@
 class Nameable
   def correct_name
-    @name
+    raise NotImplementedError
   end
 end
 
@@ -18,6 +18,10 @@ class Person < Nameable
 
   def can_use_services
     @parent_permission || is_of_age?
+  end
+
+  def correct_name
+    @name
   end
 
   private
