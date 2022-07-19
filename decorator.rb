@@ -1,6 +1,7 @@
 require './person'
 
 class Decorator < Nameable
+  attr_accessor :nameable
   def initialize(nameable)
     super()
     @nameable = nameable
@@ -13,7 +14,7 @@ end
 
 class CapitalizeDecorator < Decorator
   def correct_name
-    @nameable.correct_name.upcase!
+    @nameable.correct_name.capitalize
   end
 end
 
