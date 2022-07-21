@@ -32,6 +32,10 @@ class Person < Nameable
     Rental.new(date, self, book)
   end
 
+  def self.all
+    ObjectSpace.each_object(self).to_a
+  end
+
   private
 
   def is_of_age? # rubocop:disable Naming/PredicateName

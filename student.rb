@@ -14,6 +14,10 @@ class Student < Person
     "¯\(ツ)/¯"
   end
 
+  def self.all
+    ObjectSpace.each_object(self).to_a
+  end
+
   def classroom=(classroom)
     @classroom = classroom
     classroom.students.push(self) unless classroom.students.include?(self)
