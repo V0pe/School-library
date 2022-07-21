@@ -9,20 +9,20 @@ require './rentals'
 class App
   #lists all books
   def all_books
-    Book.all.map { |book| puts 'Title: #{book.title}, Author: #{book.author}'}
+    Book.all.map { |book| puts "Title: #{book.title}, Author: #{book.author}"}
   end
   #list people
   def all_people
-    Person.all.each { |person| p "[#{person.class.name}], Name: #{person.name}, ID: #{person.id},Age: #{person.age}"}
+    Person.all.each { |person| puts "[#{person.class.name}], Name: #{person.name}, ID: #{person.id},Age: #{person.age}"}
   end
  
   #create student
   def create_student
-    puts "Age"
+    print 'Age : '
     age = gets.chomp
-    puts "name"
+    print 'Name: '
     name = gets.chomp
-    puts "Has parent permission [Y/N]"
+    print 'Has parent permission [Y/N]'
     permission = gets.chomp
     permission  = permission.upcase!
     case permission
@@ -32,27 +32,58 @@ class App
         permission = false
     end
     Student.new(age, "Great", name, permission)
-    p "Person Created successfully"
+    puts 'Person Created successfully'
   end
 
   #create teacher
   def create_teacher
-    puts "Age"
+    print 'Age: '
     age = gets.chomp
-    puts "name"
+    print 'name: '
     name = gets.chomp
-    puts "specialization"
+    print 'specialization:'
     spec = gets.chomp
     Teacher.new(age, spec,true, name)
-    p "Person Created successfully"
+    puts 'Person Created successfully'
   end
   #create book
   def create_book
-    puts "title of the book"
+    print 'title of the book:'
     title = gets.chomp
-    puts "author of the book"
+    print 'author of the book:'
     author = gets.chomp
     Book.new(title, author)
-    p "Book Created successfully"
+    puts 'Book Created successfully'
+  end
+
+  #add rentals
+  def add_rentals
+    puts "Select a book from the following list by number"
+    Book.all.each_with_index { |key, index|
+    puts "#{index}) Title: #{key.title}, Author: #{key.author}"}
+    bookSelect = gets.chomp.to_i
+    puts "Select a person from the following list by number"
+    Person.all.each_with_index { |key, index|
+    puts "#{index}), [#{key.class.name}], Name: #{key.name}, ID: #{key.id},Age: #{key.age}"}
+    personSelect = gets.chomp.to_i
+    print 'Date: '
+    date = gets.chomp
+    Rentals.new(date, Person.all[personSelect], Book.all[bookSelect])
+    puts 'Rental Created successfully'
+  end
+
+  #list rentals
+  def list_rentals
+    print 'ID of the person: '
+    idSelect = gets.chomp.to_i
+    rentalSelect = Rentals.all.select { |rental| rental.person.id == idSelect}
+    puts 'Rentals'
+
+    if rentalSelect.empty?
+      puts "No rentals found"
+    end
+    rentalSelect.each {| rental| 
+    puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"}
+    puts "    "
   end
 end

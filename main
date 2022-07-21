@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 require './app'
 
+puts "Welcome to the School Library"
 def starter                                                     
  puts  "                             "
- puts "Welcome to the School Library"
  puts "Please choose an option by enterin a corresponding number"
  puts " 1 - List all books" 
  puts " 2 - List all people"
@@ -39,9 +39,11 @@ def starter
     app.create_book
     starter()
    when 5
-    app.
+    app.add_rentals
+    starter()
    when 6
-   app.
+   app.list_rentals
+   starter()
    when 7
      puts 'Thanks for using our application. Please do well to visit again'
    end
