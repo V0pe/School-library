@@ -28,8 +28,8 @@ class Person < Nameable
   end
 
   # has many rentals, a person has many rentals
-  def add_rental(rental)
-    @rentals.push(rental)
+  def add_rental(date, book)
+    Rental.new(date, self, book)
   end
 
   private
