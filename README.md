@@ -31,10 +31,18 @@ To view the project directory
    cd School-library
    ```
 
+Install the necessary packages
+
+```
+  bundle install
+  
+  gem install rubocop
+
+```
 To run the code
 
 ```
-ruby
+main
 ```
 
 Check for linter errors
